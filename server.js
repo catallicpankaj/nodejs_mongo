@@ -1,5 +1,5 @@
 let express = require('express');
-let mongoose = require('mongoose');
+let mongoose = require('mongoose').set("debug",true);
 
 let bodyParser = require('body-parser');
 
@@ -27,7 +27,7 @@ db.once('open', () => {
 app.get('/', (req, res) => res.send('Please use context paths to hit respective api(s).'));
 
 //Use Api routes
-app.use('/apis/v1.0/stateless/esg', apiRoutes);
+app.use('/apis/v1.0/stateless', apiRoutes);
 process.on('uncaughtException', function (err) {
     console.error(err);
 });

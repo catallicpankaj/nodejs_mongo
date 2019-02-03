@@ -21,9 +21,5 @@ esgSchema.virtual('StockName').get(function() { return this.stock_name; });
 esgSchema.virtual('ESGScore').get(function() { return this.esg_score; });
 esgSchema.set('toObject', { getters: true,virtuals: true });
 module.exports.get = function (callback) {
-    try{
     EsgModel.find({},'stock_name esg_score',callback).select("-_id");
-    }catch(e){
-        console.log(e);
-    }
 }

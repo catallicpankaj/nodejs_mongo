@@ -1,7 +1,7 @@
-EsgModel = require('../models/esgDetailsModel.js');
+GraphModel = require('../models/graphModel.js');
 
-exports.list_all_details = function(req, res) {
-    EsgModel.get(function(err, esgdata) {
+exports.list_all_graphdata = function(req, res) {
+    GraphModel.get(function(err, graphData) {
         if (err) {
             res.json({
                 serviceStatus: "Error",
@@ -10,20 +10,20 @@ exports.list_all_details = function(req, res) {
         }
         res.json({
             serviceStatus: "Success",
-            message: "Esg Details retrieved successfully.",
-            data: esgdata,
+            message: "Graph Details retrieved successfully.",
+            data: graphData,
             "traceId": generateTraceId().traceId,
             "spanId": generateTraceId().spanId
         });
     });
 }
 
-exports.list_detail_by_stock_name = function(req, res) {
+exports.list_graphdata_by_name = function(req, res) {
     //'stock_name esg_score'
-    var selectData = "stock_name esg_score E S G news earnings_call_transcript -_id";
-    EsgModel.find({
+    var selectData = "-_id -id";
+    GraphModel.find({
         'stock_name': req.params.stockname
-    }, selectData, function(err, esgdetail) {
+    }, selectData, function(err, graphDetailByName) {
         if (err) {
             res.json({
                 serviceStatus: "Error",
@@ -31,8 +31,8 @@ exports.list_detail_by_stock_name = function(req, res) {
             })
         }
         res.json({
-            message: 'ESG details for Stock '+req.params.stockname,
-            data: esgdetail,
+            message: 'Graph details',
+            data: graphDetailByName,
             "traceId": generateTraceId().traceId,
             "spanId": generateTraceId().spanId
         });
