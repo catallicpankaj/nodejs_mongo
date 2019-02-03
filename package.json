@@ -1,0 +1,21 @@
+{
+  "name": "esgappapi",
+  "version": "1.0.0",
+  "description": "Restful apis for esg application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pankaj Sharma",
+  "license": "ISC",
+  "start": "nodemon server.js",
+  "devDependencies": {
+    "nodemon": "latest"
+  },
+  "dependencies": {
+    "express": "latest",
+    "mongoose": "latest",
+    "mongodb": "latest",
+    "body-parser": "latest"
+  }
+}
