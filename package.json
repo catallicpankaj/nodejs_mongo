@@ -16,6 +16,7 @@
     "express": "latest",
     "mongoose": "latest",
     "mongodb": "latest",
-    "body-parser": "latest"
+    "body-parser": "latest",
+    "cors":"latest"
   }
 }
