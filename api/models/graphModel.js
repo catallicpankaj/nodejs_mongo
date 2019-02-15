@@ -5,7 +5,8 @@ var graphSchema=mongoose.Schema({
 _id:Object,
 stock_name:String,
 esg_intensity:String,
-stock_price_variation:String
+stock_price_variation:String,
+weekly_distribution:String
 });
 
 var GraphModel = module.exports=mongoose.model('graph',graphSchema,'graph');
